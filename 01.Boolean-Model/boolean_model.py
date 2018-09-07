@@ -72,37 +72,38 @@ def getAnswer(reverseIndex, query, numDocs):
 
 def buildReverseIndex(docs):
     """Builds revers index for entered document strings"""
-	reverseIndex = dict()
-	for doc in docs:
-		for word in re.findall(r'\w+', doc[1]):
-			word = word.lower()
-			if word not in reverseIndex:
-				reverseIndex[word] = list()
-			reverseIndex[word].append(doc[0])
-	for key in reverseIndex:
-		reverseIndex[key].sort()
-	return reverseIndex
+    reverseIndex = dict()
+    for doc in docs:
+	    for word in re.findall(r'\w+', doc[1]):
+		    word = word.lower()
+		    if word not in reverseIndex:
+			    reverseIndex[word] = list()
+		    reverseIndex[word].append(doc[0])
+    for key in reverseIndex:
+	    reverseIndex[key].sort()
+    return reverseIndex
 
 def takeInput():
     """Takes input strings and returns it as a list"""
-	inputList = list()
-	while True:
-		try:
-			inputString = input()
-			inputList.append(inputString.strip())
-		except EOFError:
-			break
-	return inputList
+    inputList = list()
+    while True:
+	    try:
+		    inputString = input()
+		    inputList.append(inputString.strip())
+	    except EOFError:
+		    break
+    return inputList
 
 def main():
-	print("Enter each string on one line. Press Ctrl-D to stop the input.")
-	inputDocs = takeInput()
-	reverseIndex = buildReverseIndex(zip(range(1, len(inputDocs) + 1), inputDocs))
-	for key in reverseIndex:
-		print("(" + key + ", " + str(len(reverseIndex[key]))  + ") -> ", end = "")
-		print(reverseIndex[key])
+    print("Enter each string on one line. Press Ctrl-D to stop the input.")
+    inputDocs = takeInput()
+    reverseIndex = buildReverseIndex(zip(range(1, len(inputDocs) + 1), inputDocs))
+    print("\nReverse Index: ")
+    for key in reverseIndex:
+	    print("(" + key + ", " + str(len(reverseIndex[key]))  + ") -> ", end = "")
+	    print(reverseIndex[key])
 	
-	while True:
+    while True:
 	    print("\nEnter Query.(^/|/!)")
 	    try:
 	 	    inputQuery = input()
@@ -111,7 +112,7 @@ def main():
 	    except EOFError:
 		    break
 	
-	print("Thank you!")
+    print("Thank you!")
 
 if __name__ == '__main__':
-	main()
+    main()
