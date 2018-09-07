@@ -3,6 +3,7 @@
 import re
 
 def solveQuery(reverseIndex, query, numDocs, bracketAnswers):
+    """Solves an individual query"""
     if query[0] == "(":
         query = query[1 : len(query) - 1]
 
@@ -54,6 +55,7 @@ def solveQuery(reverseIndex, query, numDocs, bracketAnswers):
     return answer
 
 def getAnswer(reverseIndex, query, numDocs):
+    """Solves each bracket at a time and finally solves whole query"""
     p = re.compile(r"""\([\s\w\[\],^!\|]+\)""")
     bracketAnswers = dict()
     count = 1
@@ -69,6 +71,7 @@ def getAnswer(reverseIndex, query, numDocs):
     return answer
 
 def buildReverseIndex(docs):
+    """Builds revers index for entered document strings"""
 	reverseIndex = dict()
 	for doc in docs:
 		for word in re.findall(r'\w+', doc[1]):
@@ -81,6 +84,7 @@ def buildReverseIndex(docs):
 	return reverseIndex
 
 def takeInput():
+    """Takes input strings and returns it as a list"""
 	inputList = list()
 	while True:
 		try:
