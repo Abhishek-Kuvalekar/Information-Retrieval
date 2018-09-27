@@ -95,6 +95,7 @@ def takeInput():
     return inputList
 
 def main():
+    print("Boolean Model")
     print("Enter each string on one line. Press Ctrl-D to stop the input.")
     inputDocs = takeInput()
     reverseIndex = buildReverseIndex(zip(range(1, len(inputDocs) + 1), inputDocs))
@@ -104,13 +105,16 @@ def main():
 	    print(reverseIndex[key])
 	
     while True:
-	    print("\nEnter Query.(^/|/!)")
-	    try:
-	 	    inputQuery = input()
-	 	    answer = getAnswer(reverseIndex, inputQuery, len(inputDocs))
-	 	    print(answer)
-	    except EOFError:
-		    break
+        print("\nEnter Query.(^/|/!)")
+        try:
+            inputQuery = input()
+            answer = getAnswer(reverseIndex, inputQuery, len(inputDocs))
+            if len(answer) == 0:
+                print("{}")
+            else:   
+                print(answer)
+        except EOFError:
+            break
 	
     print("Thank you!")
 
