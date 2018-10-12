@@ -1,0 +1,19 @@
+Using wordnet nltk library:
+
+#1) print all noun words present in wordnet.
+
+#2) Print the different senses or meanings of the given word.
+
+#3) Print all synonyms for the given word. Also count them.
+
+#4) Print the antonyms of the given word.
+
+5) Print the number of senses of the given word in all parts-of-speech category like noun, verb, adverb and adjective.
+
+6) Find the semantic similarity between the given words.
+
+7) For the given word print its hypernym and co-hyponyms.
+
+8) For the given word print its hyponyms.
+
+9) Find all the words related to sports domain from wordnet.
